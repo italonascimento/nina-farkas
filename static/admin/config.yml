@@ -6,15 +6,25 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: "projetos"
+    label: "Projetos"
+    folder: "content/projects"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
-     preview: false
+     preview: true
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Imagens", name: "images", widget: "image" }
+      - { label: "Descrição", name: "description", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Sobre"
+        name: "sobre"
+        file: "site/content/about.yml"
+        fields:
+          - { label: "Título", name: title, widget: string }
+          - { label: "Foto", name: "picture", widget: "image", allow_multiple: false }
+          - { label: "Text", name: "text", widget: "markdown" }
